@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>Arsha Bootstrap Template - Index</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="assets/img/favicon.png" rel="icon">
+	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top bg-dark">
+		<div class="container d-flex align-items-center">
+
+			<h1 class="logo me-auto"><a href="index.html">Rafranet</a></h1>
+			<!-- Uncomment below if you prefer to use an image logo -->
+			<!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto active" href="#orderBox">Order</a></li>
+					<li class="dropdown">
+						<a href="#"><span>My Order</span> <i class="bi bi-chevron-down"></i></a>
+						<ul>
+							<li><a href="#" onclick="loadOrder(1)">Order 1</a></li>
+							<li><a href="#" onclick="loadOrder(2)">Order 2</a></li>
+							<li><a href="#" onclick="loadOrder(3)">Order 3</a></li>
+						</ul>
+					</li>
+					<li><a class="getstarted scrollto" href="index.html">Kembali</a></li>
+				</ul>
+
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav>
+			<!-- .navbar -->
+
+		</div>
+	</header>
+	<!-- End Header -->
+	<script>
+		async function loadOrder(orderId) {
+			try {
+				const response = await fetch('order.json');
+				const orders = await response.json();
+				
+				const selectedOrder = orders.find(order => order.id === orderId);
+				
+				if (selectedOrder) {
+					const responseData = {
+						"code": 0,
+						"info": "OK",
+						"data": [selectedOrder]
+					};
+	
+					const responseString = JSON.stringify(responseData, null, 2);
+					alert(responseString);
+				} else {
+					alert("Order not found");
+				}
+			} catch (error) {
+				console.error('Error:', error);
+			}
+		}
+	</script>
+	
+	<div class="container d-flex justify-content-center align-items-center">
+		<div id="orderBox" class="col-md-6 mb-5 mt-5">
+			<div class="container mt-5" data-aos="fade-up">
+				<div class="section-title">
+					<h2>ORDER</h2>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header">
+					<h5 class="card-title mb-0 text-center pb-2 pt-2">Pemasangan Internet</h5>
+				</div>
+
+				<div class="card-body">
+					<form id="registrationForm">
+						<div class="mb-3">
+							<label for="nama" class="form-label text-muted small">Nama</label>
+							<input id="nama" type="text" class="form-control" name="nama" placeholder="Nama">
+						</div>
+
+						<div class="mb-3">
+							<label for="email" class="form-label text-muted small">Email</label>
+							<input id="email" type="email" class="form-control" name="email" placeholder="Email">
+						</div>
+
+						<div class="mb-3">
+							<label for="upload-bukti" class="form-label text-muted small">Upload Identity</label>
+							<input id="upload-bukti" type="file" class="form-control" name="upload_identity">
+						</div>
+
+						<div class="mb-3">
+							<label for="kota" class="form-label text-muted small">Kota</label>
+							<input id="kota" type="text" class="form-control" name="kota" placeholder="Kota">
+						</div>
+
+						<div class="mb-3">
+							<label for="kecamatan" class="form-label text-muted small">Kecamatan</label>
+							<input id="kecamatan" type="text" class="form-control" name="kecamatan" placeholder="Kecamatan">
+						</div>
+
+						<div class="mb-3">
+							<label for="jalan" class="form-label text-muted small">Jalan</label>
+							<input id="jalan" type="text" class="form-control" name="jalan" placeholder="Jalan">
+						</div>
+
+						<div class="mb-3">
+							<label for="user-id" class="form-label text-muted small">User ID</label>
+							<select id="user-id" class="form-select" name="user_id">
+								<option value="1">Bambang</option>
+								<option value="2">John Doe</option>
+								<option value="3">Jane Smith</option>
+							</select>
+						</div>
+
+						<div class="mb-3">
+							<label for="package-id" class="form-label text-muted small">Package ID</label>
+							<select id="package-id" class="form-select" name="package_id">
+								<option value="1">Paket - Hemat</option>
+								<option value="2">Paket - Mending</option>
+								<option value="3">Paket - Sultan</option>
+							</select>
+						</div>
+
+						<div class="mb-4">
+							<label for="status-id" class="form-label text-muted small">Status ID</label>
+							<select id="status-id" class="form-select" name="status_id">
+								<option value="1">Belum dikirim</option>
+								<option value="2">Sedang dikirim</option>
+								<option value="3">Sudah dikirim</option>
+							</select>
+						</div>
+
+						<div class="mb-3">
+							<button id="btn-register" type="button" class="btn btn-outline-info" onclick="order()">Pesan</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function order() {
+			// Get values from form
+			const nama = document.getElementById("nama").value;
+			const email = document.getElementById("email").value;
+			const uploadBukti = document.getElementById("upload-bukti").value;
+			const kota = document.getElementById("kota").value;
+			const kecamatan = document.getElementById("kecamatan").value;
+			const jalan = document.getElementById("jalan").value;
+			const userId = document.getElementById("user-id").value;
+			const packageId = document.getElementById("package-id").value;
+			const statusId = document.getElementById("status-id").value;
+
+			// Check if any field is empty
+			if (!nama || !email || !uploadBukti || !kota || !kecamatan || !jalan) {
+				alert("Harap lengkapi semua kolom!");
+				return;
+			}
+
+			// Construct response data if all fields are filled
+			const responseData = {
+				"code": "0",
+				"info": "OK",
+				"data": {
+					"order_id": 1,
+					"nama_paket": document.getElementById("package-id").options[document.getElementById("package-id").selectedIndex].text
+				}
+			};
+
+			// Show response only if all fields are filled
+			const responseString = JSON.stringify(responseData, null, 2);
+			alert(responseString);
+		}
+	</script>
+
+
+	<!-- ======= Footer ======= -->
+	<footer id="footer">
+		<div class="container footer-bottom clearfix">
+			<div class="copyright">
+				2023 &copy; Copyright <strong><span>Rafly</span></strong>. All Rights Reserved
+			</div>
+			<div class="credits">
+				Designed by <a href="#">Rafly</a>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<div id="preloader"></div>
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+			class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+	<script src="assets/vendor/php-email-form/validate.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!-- Template Main JS File -->
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

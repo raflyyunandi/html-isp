@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"nama": "Suprapto",
+		"email": "suprapto@yopmail.com",
+		"kota": "Bandung",
+		"kecamatan": "Buah Batu",
+		"jalan": "Buah Batu",
+		"user_id": "1",
+		"teknisi_id": "1",
+		"status_id": "1",
+		"paket_id": "1"
+	},
+	{
+		"id": 2,
+		"nama": "Habib",
+		"email": "habib@yopmail.com",
+		"kota": "Bandung",
+		"kecamatan":"Buah Batu",
+		"jalan":"Buah Batu",
+		"user_id":"2",
+		"teknisi_id":"3",
+		"status_id":"4",
+		"paket_id":"3"
+	}
+]
