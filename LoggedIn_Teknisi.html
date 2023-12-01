@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-  <meta name="author" content="AdminKit">
+  <meta name="author" content="MyAdmin">
   <meta name="keywords"
-    content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+    content="MyAdmin, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="shortcut icon" href="assets/img/icons/icon-48x48.png" />
 
-  <link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
+  <link rel="canonical" href="https://demo-basic.MyAdmin.io/pages-blank.html" />
 
   <title>Teknisi - Admin</title>
 
@@ -61,54 +61,54 @@
             </a>
           </li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="#" id="btn-logout">
-							<i class="align-middle" data-feather="log-out"></i> <span class="align-middle">Logout</span>
-						</a>
-					</li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="#" id="btn-logout">
+              <i class="align-middle" data-feather="log-out"></i> <span class="align-middle">Logout</span>
+            </a>
+          </li>
 
-		</nav>
+    </nav>
 
-		<script>
-			document.getElementById("btn-logout").addEventListener("click", function () {
-				var xhr = new XMLHttpRequest();
-				xhr.open("GET", "userLogginIn.json", true);
-				xhr.onreadystatechange = function () {
-					if (xhr.readyState === 4 && xhr.status === 200) {
-						var data = JSON.parse(xhr.responseText);
-						if (data.length === 0) {
-							alert("Logout gagal: file userLogginIn.json kosong.");
-						} else {
-							var isValid = false;
-							for (var i = 0; i < data.length; i++) {
-								if (data[i].user_id && data[i].username) {
-									isValid = true;
-									break;
-								}
-							}
-							if (isValid) {
-								const responseData = {
-									"code": "0",
-									"info": "OK",
-									"data": {
-										"id": "1",
-										"nama": "Bambang"
-									}
-								};
+    <script>
+      document.getElementById("btn-logout").addEventListener("click", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "userLogginIn.json", true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            if (data.length === 0) {
+              alert("Logout gagal: file userLogginIn.json kosong.");
+            } else {
+              var isValid = false;
+              for (var i = 0; i < data.length; i++) {
+                if (data[i].user_id && data[i].username) {
+                  isValid = true;
+                  break;
+                }
+              }
+              if (isValid) {
+                const responseData = {
+                  "code": "0",
+                  "info": "OK",
+                  "data": {
+                    "id": "1",
+                    "nama": "Bambang"
+                  }
+                };
 
-								const responseString = JSON.stringify(responseData, null, 2);
-								alert(responseString);
+                const responseString = JSON.stringify(responseData, null, 2);
+                alert(responseString);
 
-								window.location.href = "index.html";
-							} else {
-								alert("Logout gagal: isian file userLogginIn.json tidak sesuai format.");
-							}
-						}
-					}
-				};
-				xhr.send();
-			});
-		</script>
+                window.location.href = "index.html";
+              } else {
+                alert("Logout gagal: isian file userLogginIn.json tidak sesuai format.");
+              }
+            }
+          }
+        };
+        xhr.send();
+      });
+    </script>
 
     <div class="main">
       <nav class="navbar navbar-expand navbar-light navbar-bg">
@@ -415,9 +415,10 @@
           <div class="row text-muted">
             <div class="col-6 text-start">
               <p class="mb-0">
-                <a class="text-muted" href="#" target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted"
-                  href="#" target="_blank"><strong>Bootstrap Admin
-                    Template</strong></a> &copy;
+                <a class="text-muted" href="#" target="_blank"><strong>MyAdmin</strong></a> - <a class="text-muted"
+                  href="#" target="_blank"><strong>
+                    Bootstrap Admin
+                  </strong></a> &copy;
               </p>
             </div>
             <div class="col-6 text-end">
